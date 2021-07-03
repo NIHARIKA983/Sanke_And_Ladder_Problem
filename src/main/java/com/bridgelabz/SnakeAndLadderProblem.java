@@ -9,14 +9,16 @@ public class SnakeAndLadderProblem {
     static final int LADDER = 1;
     static final int SNAKE = 2;
     static final int NOPLAY = 0;
-
+    int totalDiceCount=0;
     static Random RANDOM = new Random();
 
     //uc2 rolling the dice
-    public int diceRoll()
-    {
+    public int diceRoll(){
         int diceNumber = (RANDOM.nextInt(6)+1);
         System.out.println("dice number  " +diceNumber);
+        //UC6 number of times a dice was played to win the game
+        totalDiceCount++;
+        System.out.println("totalDiceCount " +totalDiceCount);
         return diceNumber;
     }
     //uc3 The Player then checks for a Option. They are No Play, Ladder or Snake.
@@ -61,7 +63,7 @@ public class SnakeAndLadderProblem {
         }
     }
     public static void main(String args[])
-    {
+    {   System.out.println("Welcome to snake and ladder game simulator");
         SnakeAndLadderProblem snakeAndLadder=new SnakeAndLadderProblem();
         snakeAndLadder.gamePlay();
 
