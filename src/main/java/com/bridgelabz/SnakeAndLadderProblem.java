@@ -19,7 +19,7 @@ public class SnakeAndLadderProblem {
         System.out.println("dice number  " +diceNumber);
         return diceNumber;
     }
-    //uc3 gameplay
+    //uc3 The Player then checks for a Option. They are No Play, Ladder or Snake.
     public void gamePlay() {
         int playerPosition=STARTING_POSITION;
 
@@ -32,22 +32,29 @@ public class SnakeAndLadderProblem {
             switch (action) {
 
                 case LADDER:
-                    playerPosition = playerPosition + dice;
-                    System.out.println("current ladder position: " + playerPosition);
+                    int limit;
+                    limit = playerPosition;
+                    limit = limit + dice;
+                    //uc5 Ensure the player get to exact winning position 100.
+                    if (limit<=ENDING_POSITION) {
+                        playerPosition = playerPosition + dice;
+                        System.out.println("current ladder position: " + playerPosition);
+                    }
                     break;
                 case SNAKE:
                     playerPosition = playerPosition - dice;
-                    if (playerPosition < 0) {
+                    if (playerPosition < STARTING_POSITION) {
                         playerPosition = STARTING_POSITION;
                     }
                     System.out.println("current snake position: " + playerPosition);
                     break;
                 case NOPLAY:
                     playerPosition = playerPosition;
-                    if (playerPosition < 0) {
+                    if (playerPosition < STARTING_POSITION) {
                         playerPosition = STARTING_POSITION;
+                        System.out.println("no play position: " + playerPosition);
                     }
-                    System.out.println("no play position: " + playerPosition);
+
                     break;
             }
             System.out.println(" ");
